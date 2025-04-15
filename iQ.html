@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            margin: 20px 0;
+            font-size: 2rem;
+        }
+        .palette {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 90%;
+        }
+        .color-box {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            opacity: 0; /* 초기 상태: 투명 */
+            transform: scale(0.8); /* 초기 상태: 축소 */
+            animation: fadeIn 0.5s ease forwards; /* 애니메이션 적용 */
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* 페이드 인 애니메이션 */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Palette Generator</h1>
+    <div class="palette" id="palette"></div>
+    <button onclick="generatePalette()">Generate Palette</button>
+
+    <script>
+        function generateRandomHSL(baseHue, offset) {
+            const hue = (baseHue + offset) % 360; // Base hue with offset for variation
+            const saturation = Math.floor(Math.random() * 20) + 60; // 60% to 80%
+            const lightness = Math.floor(Math.random() * 20) + 50; // 50% to 70%
+            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        }
+
+        function generatePalette() {
+            const palette = document.getElementById('palette');
+            palette.innerHTML = ''; // Clear previous palette
+
+            const totalColors = 3; // Number of colors in the palette
+            const baseHue = Math.floor(Math.random() * 360); // Random base hue
+
+            for (let i = 0; i < totalColors; i++) {
+                const color = generateRandomHSL(baseHue, i * 120); // Spread hues evenly
+                const colorBox = document.createElement('div');
+                colorBox.className = 'color-box';
+                colorBox.style.backgroundColor = color;
+
+                // Add color code below the box
+                const colorCode = document.createElement('span');
+                colorCode.textContent = color;
+                colorBox.appendChild(colorCode);
+
+                palette.appendChild(colorBox);
+            }
+        }
+
+        // Generate an initial palette on page load
+        window.onload = generatePalette;
+    </script>
+</body>
+</html>
