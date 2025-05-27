@@ -122,14 +122,10 @@
     </div>
     <script>
       function salaryCalc() {
-        if (frm.career.value == 0)
-          frm.salary.value = "28,000,000원";
-        if (frm.career.value == 1)
-          frm.salary.value = "30,000,000원";
-        if (frm.career.value == 2)
-          frm.salary.value = "32,000,000원";
-        if (frm.career.value == 3)
-          frm.salary.value = "35,000,000원";
+        if (frm.career.value == 0) frm.salary.value = "28,000,000원";
+        if (frm.career.value == 1) frm.salary.value = "30,000,000원";
+        if (frm.career.value == 2) frm.salary.value = "32,000,000원";
+        if (frm.career.value == 3) frm.salary.value = "35,000,000원";
       }
       function printResult() {
         if (frm.name.value == "") {
@@ -143,8 +139,12 @@
           return;
         }
         /*이름과 지원한 분야 띄우는 변수*/
-        let resultText = frm.name.value + "님은 " + document.frm.apply.value + " 분야에 지원하셨습니다.";
-        getElementById("result").innerHTML = resultText;
+        let resultText =
+          frm.name.value +
+          "님은 " +
+          document.frm.apply.value +
+          " 분야에 지원하셨습니다.";
+        document.getElementById("result").innerHTML = resultText;
 
         let id = setTimeout(() => {
           alert("부산소프트웨어마이스터고에 지원해주셔서 갑사합니다.");
