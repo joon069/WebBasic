@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인라인 스타일</title>
+</head>
+<body>
+	<h1 id="color" onclick = "changeColor()">지금 우리 학교는</h1>
+  <form name="frm">
+    <select name="career" onchange="alert(frm.career.value)">
+      <option value="0">신입</option>
+      <option value="1">1년이상</option>
+      <option value="2">2년이상</option>
+      <option value="3">3년이상</option>
+    </select>
+  </form>
+	<p>위 텍스트를 클릭해 보세요</p>
+	<script>
+    let h1 = document.getElementById('color');
+		function changeColor(){
+			if(h1.style.color === 'blue'){
+        h1.style.color = 'red';
+      }
+      else {
+        h1.style.color = 'blue';
+      }
+		}
+	</script>
+</body>
+</html>
