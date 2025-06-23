@@ -139,11 +139,7 @@
           return;
         }
         /*이름과 지원한 분야 띄우는 변수*/
-        let resultText =
-          frm.name.value +
-          "님은 " +
-          document.frm.apply.value +
-          " 분야에 지원하셨습니다.";
+        let resultText = frm.name.value + "님은 " + document.frm.apply.value + " 분야에 지원하셨습니다.";
         document.getElementById("result").innerHTML = resultText;
 
         let id = setTimeout(() => {
