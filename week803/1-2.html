@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 <head>
   <style>
     h2 {
@@ -13,22 +19,22 @@
     <button id="inc">+1</button>
     <button id="dec">-1</button>
   </div>
-
   <script>
     const  $number = document.getElementById("number");
     const  $incBtn = document.getElementById("inc");
     const  $decBtn = document.getElementById("dec");
-
+    
     $incBtn.addEventListener("click", increase);
-     //이벤트 리스너에 increase 함수 등록
-      function increase(){
-        const current = parseInt($number.textContent);
-        $number.textContent = current + 1;
+    //이벤트 리스너에 increase 함수 등록
+    function increase(){
+      const current = parseInt($number.textContent);
+      $number.textContent = current + 1;
     }
     $decBtn.addEventListener("click", function(e) {
       const current = parseInt($number.textContent);
       console.log(e);
       $number.textContent = current - 1;
     });
-  </script>
+    </script>
 </body>
+</html>
